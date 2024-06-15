@@ -25,7 +25,7 @@ modules:
     sources:
       - type: svn
         url: https://svn.zdechov.net/2048/tags/1.4.0
-        revision: r95
+        revision: r98
     buildsystem: simple
     build-commands:
       - |
