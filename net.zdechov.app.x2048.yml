@@ -1,6 +1,6 @@
 app-id: net.zdechov.app.x2048
 runtime: org.kde.Platform
-runtime-version: '5.15-23.08'
+runtime-version: '5.15-24.08'
 sdk: org.kde.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.freepascal
@@ -9,7 +9,6 @@ finish-args:
   - --share=ipc
   - --socket=fallback-x11
   - --socket=wayland
-  - --socket=pulseaudio
   - --device=dri
 modules:
   - name: qt5pas
@@ -24,8 +23,8 @@ modules:
   - name: x2048
     sources:
       - type: svn
-        url: https://svn.zdechov.net/2048/tags/1.4.0
-        revision: r98
+        url: https://svn.zdechov.net/2048/tags/1.5.0
+        revision: r121
     buildsystem: simple
     build-commands:
       - |
@@ -37,4 +36,5 @@ modules:
       - install -Dm644 Install/flatpak/${FLATPAK_ID}.desktop -t $FLATPAK_DEST/share/applications
       - install -Dm644 "Images/Logo 256x256.png" $FLATPAK_DEST/share/icons/hicolor/256x256/apps/${FLATPAK_ID}.png
       - install -Dm644 Languages/*.po -t $FLATPAK_DEST/share/Game2048/Languages
+      - install -Dm644 Packages/Common/Languages/*.po -t $FLATPAK_DEST/share/Game2048/Languages
       - install -Dm644 Install/flatpak/${FLATPAK_ID}.appdata.xml $FLATPAK_DEST/share/metainfo/${FLATPAK_ID}.metainfo.xml
